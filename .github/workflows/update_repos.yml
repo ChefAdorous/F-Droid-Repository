@@ -1,12 +1,9 @@
-name: Advanced F-Droid Repository Updater
+name: F-Droid Repository Updater
 
 on:
   schedule:
     - cron: '*/15 * * * *'
   workflow_dispatch:
-
-env:
-  PYTHON_VERSION: '3.10'
 
 jobs:
   update-repos:
@@ -17,22 +14,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: '3.10'
           
-      - name: Cache pip packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4 gitpython pandas tabulate
 
-      - name: Fetch, update, and format F-Droid repositories
+      - name: Fetch and update F-Droid repositories
         env:
           GITHUB_TOKEN: ${{ secrets.GITTOKEN }}
         run: |
@@ -53,7 +42,6 @@ jobs:
                   'https://f-droid.org/archive/',
                   'https://guardianproject.info/fdroid/repo/',
                   'https://apt.izzysoft.de/fdroid/repo/',
-                  # Add more URLs here
               ]
               repos = []
               for url in urls:
@@ -81,10 +69,6 @@ jobs:
                       unique_repos.append(repo)
               return unique_repos
           
-          def update_repo_list(repos):
-              with open('fdroid_repos.json', 'w') as f:
-                  json.dump(repos, f, indent=2)
-          
           def update_readme(repos):
               df = pd.DataFrame(repos)
               table = tabulate(df, headers='keys', tablefmt='pipe', showindex=False)
@@ -92,11 +76,9 @@ jobs:
               with open('README.md', 'r') as f:
                   content = f.read()
               
-              # Define start and end markers for the table
               start_marker = "<!-- START_FDROID_REPO_TABLE -->"
               end_marker = "<!-- END_FDROID_REPO_TABLE -->"
               
-              # Replace the existing table or add a new one
               new_content = re.sub(
                   f"{start_marker}.*?{end_marker}",
                   f"{start_marker}\n\n{table}\n\n{end_marker}",
@@ -109,68 +91,17 @@ jobs:
           
           def git_push_changes():
               repo = Repo('.')
-              repo.git.add(['fdroid_repos.json', 'README.md'])
-              repo.index.commit('Auto-update F-Droid repositories and README')
+              repo.git.add(['README.md'])
+              repo.index.commit('Auto-update F-Droid repositories in README')
               origin = repo.remote('origin')
               origin.push()
           
           def main():
               repos = fetch_repos()
               unique_repos = remove_duplicates(repos)
-              update_repo_list(unique_repos)
               update_readme(unique_repos)
               git_push_changes()
           
           if __name__ == "__main__":
               main()
           EOF
-
-      - name: Check for updates
-        run: |
-          pip list --outdated
-
-      - name: Self-update workflow
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITTOKEN }}
-        run: |
-          python - <<EOF
-          import requests
-          import yaml
-          import os
-          
-          def get_latest_workflow():
-              url = "https://raw.githubusercontent.com/ChefAdorous/F-Droid-Repository/main/.github/workflows/update_repos.yml"
-              response = requests.get(url)
-              return response.text
-          
-          def update_workflow():
-              latest_workflow = get_latest_workflow()
-              current_workflow_path = '.github/workflows/update_repos.yml'
-              
-              with open(current_workflow_path, 'r') as f:
-                  current_workflow = f.read()
-              
-              if latest_workflow != current_workflow:
-                  with open(current_workflow_path, 'w') as f:
-                      f.write(latest_workflow)
-                  print("Workflow updated. Committing changes...")
-                  os.system('git config --local user.email "action@github.com"')
-                  os.system('git config --local user.name "GitHub Action"')
-                  os.system('git add .')
-                  os.system('git commit -m "Auto-update workflow"')
-                  os.system('git push')
-              else:
-                  print("Workflow is up to date.")
-          
-          update_workflow()
-          EOF
-
-      - name: Update dependencies
-        run: |
-          pip install -U -r requirements.txt
-          pip freeze > requirements.txt
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add requirements.txt
-          git commit -m "Update dependencies" || echo "No changes to commit"
-          git push
