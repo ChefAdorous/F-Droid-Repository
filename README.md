@@ -7,6 +7,14 @@ This repository automatically tracks and updates a list of F-Droid repositories.
 Below is a table of the currently tracked F-Droid repositories. This table is automatically updated every 15 minutes.
 
 <!-- START_FDROID_REPO_TABLE -->
+
+| name                                     | url                                       | last_updated        |   app_count | description   |
+|:-----------------------------------------|:------------------------------------------|:--------------------|------------:|:--------------|
+| F-Droid                                  | https://fdroid.org/repo/                  | 2024-07-30 00:25:08 |           0 | N/A           |
+| F-Droid Archive                          | https://f-droid.org/archive/              | 2024-07-30 00:25:09 |           0 | N/A           |
+| Guardian Project Official App Repository | https://guardianproject.info/fdroid/repo/ | 2024-07-30 00:25:09 |           0 | N/A           |
+| IzzyOnDroid F-Droid Repository           | https://apt.izzysoft.de/fdroid/repo/      | 2024-07-30 00:25:11 |           0 | N/A           |
+
 <!-- END_FDROID_REPO_TABLE -->
 
 ## About This Project
