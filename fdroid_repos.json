@@ -2,21 +2,21 @@
   {
     "name": "mirror of f-droid.org",
     "url": "https://fdroid.org/repo/",
-    "last_updated": "2025-02-15 19:31:27",
+    "last_updated": "2025-02-15 19:46:20",
     "app_count": 0,
     "description": "N/A"
   },
   {
     "name": "F-Droid Archive",
     "url": "https://f-droid.org/archive/",
-    "last_updated": "2025-02-15 19:31:28",
+    "last_updated": "2025-02-15 19:46:20",
     "app_count": 0,
     "description": "N/A"
   },
   {
     "name": "IzzyOnDroid F-Droid Repository",
     "url": "https://apt.izzysoft.de/fdroid/repo/",
-    "last_updated": "2025-02-15 19:31:39",
+    "last_updated": "2025-02-15 19:46:33",
     "app_count": 0,
     "description": "N/A"
   }
