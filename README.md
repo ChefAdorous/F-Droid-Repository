@@ -10,10 +10,10 @@ Below is a table of the currently tracked F-Droid repositories. This table is au
 
 | name                                     | url                                       | last_updated        |   app_count | description   |
 |:-----------------------------------------|:------------------------------------------|:--------------------|------------:|:--------------|
-| mirror of f-droid.org                    | https://fdroid.org/repo/                  | 2025-06-08 15:31:18 |           0 | N/A           |
-| My First F-Droid Archive Demo            | https://f-droid.org/archive/              | 2025-06-08 15:31:18 |           0 | N/A           |
-| Guardian Project Official App Repository | https://guardianproject.info/fdroid/repo/ | 2025-06-08 15:31:19 |           0 | N/A           |
-| IzzyOnDroid F-Droid Repository           | https://apt.izzysoft.de/fdroid/repo/      | 2025-06-08 15:31:20 |           0 | N/A           |
+| mirror of f-droid.org                    | https://fdroid.org/repo/                  | 2025-06-08 15:33:05 |           0 | N/A           |
+| My First F-Droid Archive Demo            | https://f-droid.org/archive/              | 2025-06-08 15:33:06 |           0 | N/A           |
+| Guardian Project Official App Repository | https://guardianproject.info/fdroid/repo/ | 2025-06-08 15:33:06 |           0 | N/A           |
+| IzzyOnDroid F-Droid Repository           | https://apt.izzysoft.de/fdroid/repo/      | 2025-06-08 15:33:07 |           0 | N/A           |
 
 <!-- END_FDROID_REPO_TABLE -->
 
