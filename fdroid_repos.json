@@ -1,15 +1,22 @@
 [
   {
+    "name": "My First F-Droid Archive Demo",
+    "url": "https://f-droid.org/archive/",
+    "last_updated": "2025-07-02 04:56:28",
+    "app_count": 0,
+    "description": "N/A"
+  },
+  {
     "name": "Guardian Project Official App Repository",
     "url": "https://guardianproject.info/fdroid/repo/",
-    "last_updated": "2025-07-02 04:41:28",
+    "last_updated": "2025-07-02 04:56:28",
     "app_count": 0,
     "description": "N/A"
   },
   {
     "name": "IzzyOnDroid F-Droid Repository",
     "url": "https://apt.izzysoft.de/fdroid/repo/",
-    "last_updated": "2025-07-02 04:41:29",
+    "last_updated": "2025-07-02 04:56:29",
     "app_count": 0,
     "description": "N/A"
   }
