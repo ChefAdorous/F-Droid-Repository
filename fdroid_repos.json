@@ -1,29 +1,29 @@
 [
   {
-    "name": "421 Misdirected Request",
+    "name": "mirror of f-droid.org",
     "url": "https://fdroid.org/repo/",
-    "last_updated": "2025-09-08 05:41:09",
+    "last_updated": "2025-09-08 05:47:10",
     "app_count": 0,
     "description": "N/A"
   },
   {
     "name": "My First F-Droid Archive Demo",
     "url": "https://f-droid.org/archive/",
-    "last_updated": "2025-09-08 05:41:09",
+    "last_updated": "2025-09-08 05:47:11",
     "app_count": 0,
     "description": "N/A"
   },
   {
     "name": "Guardian Project Official App Repository",
     "url": "https://guardianproject.info/fdroid/repo/",
-    "last_updated": "2025-09-08 05:41:10",
+    "last_updated": "2025-09-08 05:47:11",
     "app_count": 0,
     "description": "N/A"
   },
   {
     "name": "IzzyOnDroid F-Droid Repository",
     "url": "https://apt.izzysoft.de/fdroid/repo/",
-    "last_updated": "2025-09-08 05:41:11",
+    "last_updated": "2025-09-08 05:47:12",
     "app_count": 0,
     "description": "N/A"
   }
